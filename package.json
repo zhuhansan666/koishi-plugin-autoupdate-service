@@ -1,7 +1,7 @@
 {
     "name": "koishi-plugin-autoupdate-service",
     "description": "此插件提供轮询监测 koishi 插件更新, 安装最新版插件, 以及重载 koishi 的服务.",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",
     "files": [
