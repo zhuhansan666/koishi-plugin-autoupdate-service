@@ -3,9 +3,13 @@ import { } from '@koishijs/plugin-help'
 import { Installer } from '@koishijs/plugin-market'
 import { } from '@koishijs/plugin-console'
 import { gt } from 'semver'
+import fsPromise from 'fs/promises'
+import fs from 'fs'
+import path from 'path'
 
 import { logger } from './shared'
 import { get } from './utils/axios'
+import { writeFile } from './utils/fs'
 
 export const name = 'autoupdate-service'
 export const using = ['installer', 'console.config']
@@ -52,6 +56,7 @@ type Event = {
 
 class Autoupdate extends Service {
     static using = ['installer', 'console.config']
+    private exited = false
 
     private events: Dict<Event> = {}
 
@@ -167,9 +172,11 @@ class Autoupdate extends Service {
             }
         }
 
-        setTimeout(() => {  // 如果直接 把 this.loop 传进去会导致 this 成为 undefined
-            this.loop()
-        }, 50)  // 使用 setTimeout 实现 setInterval
+        if (!this.exited) {
+            setTimeout(() => {  // 如果直接 把 this.loop 传进去会导致 this 成为 undefined
+                this.loop()
+            }, 50)  // 使用 setTimeout 实现 setInterval
+        }
     }
 
     public watch(pluginName: string, watchInterval: number, force?: boolean, endpoint?: string) {
@@ -250,6 +257,10 @@ class Autoupdate extends Service {
 
     public override async start() {  // 在 ready 事件触发时调用
         this.loop()
+    }
+
+    public override async stop() {  // 在 dispose 事件触发时调用
+        this.exited = true  // 会在下一次 loop 退出
     }
 }
 

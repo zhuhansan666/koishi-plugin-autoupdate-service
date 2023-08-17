@@ -7,7 +7,7 @@
 import { } from 'koishi-plugin-update-auto-service'  // 引入我们的插件以获取类型提示
 
 export const using = [
-    'autoupdate',  // 如果你还需要其他服务, 您可以继续添加 item
+    'autoupdate',  // 如果您还需要其他服务, 您可以继续添加 item
 ]
 ```
 随后, 您就可以使用 `ctx.autoupdate` 访问我们的服务.
@@ -40,7 +40,7 @@ response.before(<事件名>, <回调函数>, <强制覆盖?>)
 * 事件名详见 [此处](./events.md)
 * 基本回调函数接受两个参数, 为 pluginName 和 eventName, 若其返回值为 true 则阻止后续操作, 附加参数详见 [事件 - 函数附加](./events.md)
 * 强制覆盖(选填, 默认 `false`) 在一般情况下, 一个插件的一个事件只能有一个监听函数, 如果您想覆盖已存在的监听函数, 请将其设为 `true`
-* <br> 请注意, 如果其不为 `true` 并且已有一个同插件的监听函数, 那么它将会抛出一个错误
+<br> 请注意, 如果其不为 `true` 并且已有一个同插件的监听函数, 那么它将会抛出一个错误
 
 > 您其实可以将注册监听器和监听函数一起写, 如 `ctx.autoupdate.watch(<插件全名>(string), <轮询间隔>(number), <强制覆盖?>(boolean), <endpoint?>(string)).before(<事件名>, <回调函数>, <强制覆盖?>)`
 
