@@ -4,10 +4,13 @@
 在您所编写的插件的入口文件 (一般为 `index.ts/.js`) 中写入
 <br> 更多详细使用方法, 请参阅 [koishi 文档 - 服务与依赖](https://koishi.chat/zh-CN/guide/plugin/service.html)
 ```ts
+import { } from 'koishi-plugin-update-auto-service'  // 引入我们的插件以获取类型提示
+
 export const using = [
     'autoupdate',  // 如果你还需要其他服务, 您可以继续添加 item
 ]
 ```
+随后, 您就可以使用 `ctx.autoupdate` 访问我们的服务.
 
 ## 注册监听器
 在您所编写的插件的入口函数 (或其他可以访问 `ctx` 的位置) 中写入
