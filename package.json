@@ -1,21 +1,53 @@
 {
-  "name": "koishi-plugin-autoupdate-service",
-  "description": "此插件提供轮询监测 koishi 插件更新, 安装最新版插件, 以及重载 koishi 的服务.",
-  "version": "0.0.1",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "dist"
-  ],
-  "license": "MIT",
-  "scripts": {},
-  "keywords": [
-    "chatbot",
-    "koishi",
-    "plugin"
-  ],
-  "peerDependencies": {
-    "koishi": "^4.14.1"
-  }
+    "name": "koishi-plugin-autoupdate-service",
+    "description": "此插件提供轮询监测 koishi 插件更新, 安装最新版插件, 以及重载 koishi 的服务.",
+    "version": "0.0.0",
+    "main": "lib/index.js",
+    "typings": "lib/index.d.ts",
+    "files": [
+        "lib",
+        "dist"
+    ],
+    "license": "MIT",
+    "contributors": [
+        "爱喝牛奶の涛哥 <zhuhansan666@outlook.com>"
+    ],
+    "author": {
+        "name": "爱喝牛奶の涛哥",
+        "email": "zhuhansan666@outlook.com",
+        "url": "https://github.com/zhuhansan666/"
+    },
+    "scripts": {},
+    "keywords": [
+        "chatbot",
+        "koishi",
+        "plugin"
+    ],
+    "peerDependencies": {
+        "koishi": "^4.14.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zhuhansan666/koishi-plugin-autoupdate-service.git"
+    },
+    "koishi": {
+        "description": {
+            "zh": "此插件提供轮询监测 koishi 插件更新, 安装最新版插件, 以及重载 koishi 的服务."
+        },
+        "locales": [
+            "zh"
+        ],
+        "service": {
+            "required": [
+                "installer"
+            ],
+            "implements": [
+                "autoupdate"
+            ]
+        },
+        "preview": true
+    },
+    "dependencies": {
+        "semver": "latest"
+    }
 }
