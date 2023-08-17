@@ -61,3 +61,8 @@ response.off(<事件名>, <忽略错误?>)
 ```ts
 ctx.autoupdate.off(<插件全名>, <事件名>, <忽略错误?>)
 ```
+
+## 注销监听器
+```ts
+ctx.autoupdate.unwatch(<插件全名>, <忽略错误?>)
+```

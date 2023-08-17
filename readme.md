@@ -6,4 +6,4 @@
 
 * [更新日志](./changes.md)
 
-## 在此, 强烈谴责占我包名的人 [@CyanChanges](https://github.com/CyanChanges/)
+### 在此, 强烈谴责占我包名的人 [@CyanChanges](https://github.com/CyanChanges/), 占我 `koishi-plugin-autoupdate-service`

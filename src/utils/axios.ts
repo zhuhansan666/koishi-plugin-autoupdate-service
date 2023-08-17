@@ -6,7 +6,7 @@ export async function get(ctx: Context, url: string, params?: object, headers?: 
     const config: Config = ctx.config
 
     try {
-        const response = await ctx.http.get(url, {
+        const data = await ctx.http.get(url, {
             params: params,
             headers: headers,
             timeout: config.axiosConfig ? config.axiosTimeout : null,
@@ -16,7 +16,7 @@ export async function get(ctx: Context, url: string, params?: object, headers?: 
 
         return {
             status: 0,
-            data: response,
+            data: data,
             msg: 'success'
         }
 
